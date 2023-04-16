@@ -2,6 +2,8 @@ import Head from "next/head";
 import { ReactNode } from "react";
 import BottomBar from "./ui/BottomBar";
 
+const bottomHeight = 35;
+
 interface Props {
   children?: ReactNode;
   title?: string;
@@ -21,9 +23,11 @@ const Layout = ({ title = "undefined", children }: Props) => {
           [@media(pointer:coarse)]:max-w-[500px] [@media(pointer:coarse)]:items-center
           [@media(pointer:coarse)]:px-[16px] [@media(pointer:coarse)]:py-[8px]
         "
+        style={{ paddingBottom: bottomHeight }}
       >
         {children}
       </main>
+      <BottomBar bottomHeight={bottomHeight} />
     </>
   );
 };

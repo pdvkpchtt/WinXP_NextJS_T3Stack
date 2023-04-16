@@ -17,3 +17,76 @@ body {
   height: 100%;
   overflow: hidden;
 }
+
+/* task bar win xp */
+.status-bar-task {
+  background: rgb(68, 142, 230);
+  background: linear-gradient(
+    180deg,
+    rgba(68, 142, 230, 1) 0%,
+    rgba(36, 93, 216, 1) 15%,
+    rgba(36, 94, 220, 1) 85%,
+    rgba(25, 67, 168, 1) 100%
+  );
+  border-top: 1px solid #0f4575;
+}
+.start-button {
+  background: rgb(26, 62, 26);
+  background: linear-gradient(
+    180deg,
+    rgba(30, 119, 31, 1) 100%,
+    rgba(30, 149, 31, 1) 87%,
+    rgba(57, 109, 56, 1) 15%,
+    rgba(26, 62, 26, 1) 0%
+  );
+  border: 1px solid #1c631b;
+  width: 95px;
+  height: inherit;
+  font-size: 13pt;
+  font-style: italic;
+  border-radius: 0 10px 10px 0;
+  color: #fff;
+  text-align: left;
+  text-shadow: 1px 2px 2px #505051;
+  padding-right: 4px;
+}
+.start-button-active {
+  background: rgb(26, 62, 26);
+  background: linear-gradient(
+    180deg,
+    rgba(26, 62, 26, 1) 0%,
+    rgba(57, 109, 56, 1) 15%,
+    rgba(30, 149, 31, 1) 87%,
+    rgba(30, 119, 31, 1) 100%
+  );
+  border: 1px solid #1c631b;
+  width: 95px;
+  height: inherit;
+  font-size: 13pt;
+  font-style: italic;
+  border-radius: 0 10px 10px 0;
+  color: #fff;
+  text-align: left;
+  text-shadow: 1px 2px 2px #505051;
+  padding-right: 4px;
+}
+.start-menu-task {
+  position: absolute;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 3px -1px 3px 0 #304879;
+  background: rgb(211, 229, 250);
+}
+.start-menu-header {
+  color: #fff;
+  width: 100%;
+  background: rgb(107, 164, 230);
+  background: linear-gradient(
+    180deg,
+    rgba(107, 164, 230, 1) 0%,
+    rgba(23, 102, 206, 1) 10%,
+    rgba(30, 111, 214, 1) 90%,
+    rgba(62, 138, 232, 1) 100%
+  );
+  border-radius: 4px 4px 0 0;
+}
+/* task bar win xp */
