@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import Head from "next/head";
 import { useMediaQuery } from "react-responsive";
 
@@ -24,8 +24,8 @@ const Layout = ({ title = "undefined", children }: Props) => {
       <main
         className="
           mx-auto flex h-screen max-w-[1080px] flex-col items-start px-[16px] pt-[16px]
-          [@media(pointer:coarse)]:max-w-[500px] [@media(pointer:coarse)]:items-center
-          [@media(pointer:coarse)]:px-[16px] [@media(pointer:coarse)]:pt-[8px]
+          [@media(pointer:coarse)]:max-w-[500px]
+          [@media(pointer:coarse)]:px-[8px] [@media(pointer:coarse)]:pt-[8px]
         "
         style={
           !isMobile

@@ -1,6 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useMediaQuery } from "react-responsive";
 import { useWindowSize } from "@react-hook/window-size";
 
 interface Props {
@@ -13,14 +12,13 @@ interface Props {
 }
 
 const Window = ({
-  title = "undefined",
+  title = "undef",
   styled = "",
   bodyStyled = "",
   dragable = false,
   children,
 }: Props) => {
   // to controll drag
-  const isMobile = useMediaQuery({ query: "(pointer:coarse)" });
   const [width, height] = useWindowSize();
   const [widthState, setWidthState] = useState(0);
   const [heightState, setHeightState] = useState(0);
@@ -31,7 +29,6 @@ const Window = ({
       setHeightState(element.clientHeight);
     }
   }, []);
-
   // to controll drag
 
   return (

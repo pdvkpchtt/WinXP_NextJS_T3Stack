@@ -34,10 +34,10 @@ body {
   background: rgb(26, 62, 26);
   background: linear-gradient(
     180deg,
-    rgba(30, 119, 31, 1) 100%,
-    rgba(30, 149, 31, 1) 87%,
-    rgba(57, 109, 56, 1) 15%,
-    rgba(26, 62, 26, 1) 0%
+    rgba(30, 119, 31, 1) 0%,
+    rgba(30, 149, 31, 1) 15%,
+    rgba(57, 109, 56, 1) 87%,
+    rgba(26, 62, 26, 1) 100%
   );
   border: 1px solid #1c631b;
   width: 95px;

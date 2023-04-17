@@ -1,13 +1,35 @@
 import Image from "next/image";
 import { useState } from "react";
 
+import TextHead from "./Text/TextHead";
+
 import winlogo from "../../assets/winlogo.png";
 import astronaut from "../../assets/profile/astronaut.bmp";
-import TextBody from "./TextBody";
+
+import StartMenuItem from "./StartMenuItem";
+import StartMenuSideItem from "./StartMenuSideItem";
+
+import menuItems, { menuSideItems } from "~/data/menuItems";
 
 const BottomBar = ({ bottomHeight = 0 }) => {
   const [openState, setOpenState] = useState(false);
 
+  const renderMenuItems = () => {
+    return menuItems.map((item, key) => (
+      <StartMenuItem
+        key={key}
+        name={item.name}
+        text={item.text}
+        img={item.img}
+      />
+    ));
+  };
+
+  const renderMenuSideItems = () => {
+    return menuSideItems.map((item, key) => (
+      <StartMenuSideItem key={key} name={item.name} img={item.img} />
+    ));
+  };
   return (
     <>
       <div
@@ -40,14 +62,21 @@ const BottomBar = ({ bottomHeight = 0 }) => {
                 width={48}
                 height={48}
                 alt="profile pic"
-                className="rounded-[4px] border-[1px] border-[#c9d3ed]"
+                className="rounded-[4px] border-[2px] border-[#c9d3ed]"
               />
-              <TextBody text="User" styled="text-[16px] font-semibold" />
+              <TextHead text="User" styled="text-[16px]" />
             </div>
             {/* header */}
 
-            <div className="my-[200px] flex h-full flex-col items-center justify-center">
-              work in progress
+            <div className="flex h-[450px] flex-row items-center justify-center">
+              {/* left col */}
+              <div className="flex h-full w-[60%] flex-col items-start justify-start overflow-y-auto bg-[#f0f0f0]">
+                {renderMenuItems()}
+              </div>
+              {/* right col */}
+              <div className="flex h-full w-[40%] flex-col items-start justify-start border-l-[1px] border-[#b0cff5]">
+                {renderMenuSideItems()}
+              </div>
             </div>
           </div>
         ) : null}
