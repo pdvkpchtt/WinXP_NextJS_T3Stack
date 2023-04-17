@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import { useWindowSize } from "@react-hook/window-size";
@@ -38,7 +38,7 @@ const Window = ({
     <motion.div
       className={`window ${styled}`}
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      drag={isMobile ? false : dragable}
+      drag={dragable}
       dragConstraints={
         heightState != 0 && widthState != 0
           ? {
