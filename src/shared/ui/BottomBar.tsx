@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
+import { useUser } from "@clerk/nextjs";
 
 import TextHead from "./Text/TextHead";
 
@@ -8,10 +9,13 @@ import astronaut from "../../assets/profile/astronaut.bmp";
 
 import StartMenuItem from "./StartMenuItem";
 import StartMenuSideItem from "./StartMenuSideItem";
+import ReturnToDesktopButton from "./ReturnToDesktopButton";
 
 import menuItems, { menuSideItems } from "~/data/menuItems";
 
 const BottomBar = ({ bottomHeight = 0 }) => {
+  const user = useUser();
+
   const [openState, setOpenState] = useState(false);
 
   const renderMenuItems = () => {
@@ -52,7 +56,7 @@ const BottomBar = ({ bottomHeight = 0 }) => {
         {/* start-menu */}
         {openState ? (
           <div
-            className="start-menu-task h-fit w-full max-w-[300px]"
+            className="start-menu-task h-fit w-full max-w-[300px] flex-col"
             style={{ bottom: bottomHeight }}
           >
             {/* header */}
@@ -64,20 +68,41 @@ const BottomBar = ({ bottomHeight = 0 }) => {
                 alt="profile pic"
                 className="rounded-[4px] border-[2px] border-[#c9d3ed]"
               />
-              <TextHead text="User" styled="text-[16px]" />
+              <TextHead
+                text={!user.isSignedIn ? "Unauthorized user" : "User"}
+                styled="text-[16px]"
+              />
             </div>
             {/* header */}
 
             <div className="flex h-[450px] flex-row items-center justify-center">
               {/* left col */}
               <div className="flex h-full w-[60%] flex-col items-start justify-start overflow-y-auto bg-[#f0f0f0]">
-                {renderMenuItems()}
+                {user.isSignedIn ? (
+                  renderMenuItems()
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center text-center">
+                    *this content avalible only for authorized users*
+                  </div>
+                )}
               </div>
               {/* right col */}
               <div className="flex h-full w-[40%] flex-col items-start justify-start border-l-[1px] border-[#b0cff5]">
                 {renderMenuSideItems()}
               </div>
             </div>
+
+            {/* footer */}
+            <div className="start-menu-footer flex justify-end p-[5px]">
+              {user.isSignedIn ? (
+                <ReturnToDesktopButton />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center text-center">
+                  *this content avalible only for authorized users*
+                </div>
+              )}
+            </div>
+            {/* footer */}
           </div>
         ) : null}
         {/* start-menu */}

@@ -89,4 +89,15 @@ body {
   );
   border-radius: 4px 4px 0 0;
 }
+.start-menu-footer {
+  width: 100%;
+  background: rgb(107, 164, 230);
+  background: linear-gradient(
+    180deg,
+    rgba(107, 164, 230, 1) 0%,
+    rgba(23, 102, 206, 1) 10%,
+    rgba(30, 111, 214, 1) 90%,
+    rgba(62, 138, 232, 1) 100%
+  );
+}
 /* task bar win xp */
