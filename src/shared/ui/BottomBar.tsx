@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/router";
 
 import TextHead from "./Text/TextHead";
 
@@ -9,12 +10,13 @@ import astronaut from "../../assets/profile/astronaut.bmp";
 
 import StartMenuItem from "./StartMenuItem";
 import StartMenuSideItem from "./StartMenuSideItem";
-import ReturnToDesktopButton from "./ReturnToDesktopButton";
+import ReturnToMainButton from "./ReturnToMainButton";
 
 import menuItems, { menuSideItems } from "~/data/menuItems";
 
 const BottomBar = ({ bottomHeight = 0 }) => {
   const user = useUser();
+  const router = useRouter();
 
   const [openState, setOpenState] = useState(false);
 
@@ -25,6 +27,7 @@ const BottomBar = ({ bottomHeight = 0 }) => {
         name={item.name}
         text={item.text}
         img={item.img}
+        onClick={() => void router.push(item.route)}
       />
     ));
   };
@@ -69,7 +72,13 @@ const BottomBar = ({ bottomHeight = 0 }) => {
                 className="rounded-[4px] border-[2px] border-[#c9d3ed]"
               />
               <TextHead
-                text={!user.isSignedIn ? "Unauthorized user" : "User"}
+                text={
+                  !user.isSignedIn
+                    ? "Unauthorized user"
+                    : user.user.firstName
+                    ? user.user.firstName
+                    : "Undef"
+                }
                 styled="text-[16px]"
               />
             </div>
@@ -95,9 +104,9 @@ const BottomBar = ({ bottomHeight = 0 }) => {
             {/* footer */}
             <div className="start-menu-footer flex justify-end p-[5px]">
               {user.isSignedIn ? (
-                <ReturnToDesktopButton />
+                <ReturnToMainButton />
               ) : (
-                <div className="flex h-full w-full items-center justify-center text-center">
+                <div className="flex h-full w-full items-center justify-center text-center text-[#c9d3ed]">
                   *this content avalible only for authorized users*
                 </div>
               )}

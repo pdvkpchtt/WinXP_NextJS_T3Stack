@@ -13,7 +13,7 @@ const menuItems = [
     img: explorer,
     name: "Explorer",
     text: "Internet Explorer",
-    route: "/internet",
+    route: "/explorer",
   },
 ];
 

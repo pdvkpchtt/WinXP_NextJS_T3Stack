@@ -1,12 +1,17 @@
 import { ReactNode, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useWindowSize } from "@react-hook/window-size";
+import { useRouter } from "next/router";
+
+import bottomPaddingValue from "~/data/bottomPaddingValue";
 
 interface Props {
   title?: string;
   styled?: string;
   bodyStyled?: string;
   dragable?: boolean;
+  closeButton?: boolean;
+  fullPage?: boolean;
   children?: ReactNode;
   // ref?: React.Ref<HTMLInputElement>;
 }
@@ -16,8 +21,12 @@ const Window = ({
   styled = "",
   bodyStyled = "",
   dragable = false,
+  closeButton = false,
+  fullPage = false,
   children,
 }: Props) => {
+  const router = useRouter();
+
   // to controll drag
   const [width, height] = useWindowSize();
   const [widthState, setWidthState] = useState(0);
@@ -54,14 +63,24 @@ const Window = ({
       dragMomentum={false}
       dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
       id="drag-controll"
+      style={
+        fullPage
+          ? {
+              paddingBottom: bottomPaddingValue + 8,
+            }
+          : { paddingBottom: 0 }
+      }
     >
       <div className="title-bar">
         <div className="title-bar-text select-none">{title}</div>
-        {/* <div className="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div> */}
+        <div className="title-bar-controls">
+          {closeButton ? (
+            <button
+              aria-label="Close"
+              onClick={() => void router.push("./desktop")}
+            ></button>
+          ) : null}
+        </div>
       </div>
       <div className={`window-body ${bodyStyled}`}>{children}</div>
     </motion.div>

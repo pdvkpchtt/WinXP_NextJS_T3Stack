@@ -1,12 +1,21 @@
+import { useRouter } from "next/router";
+
 import Layout from "~/shared/Layout";
 import DesktopShortcut from "~/shared/ui/DesktopShortcut";
 
 import menuItems from "~/data/menuItems";
 
 const Desktop = () => {
+  const router = useRouter();
+
   const renderShortcuts = () => {
     return menuItems.map((item, key) => (
-      <DesktopShortcut key={key} name={item.name} img={item.img} />
+      <DesktopShortcut
+        key={key}
+        name={item.name}
+        img={item.img}
+        onClick={() => void router.push(item.route)}
+      />
     ));
   };
 

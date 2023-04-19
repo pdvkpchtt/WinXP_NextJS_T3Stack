@@ -3,8 +3,9 @@ import Head from "next/head";
 import { useMediaQuery } from "react-responsive";
 
 import BottomBar from "./ui/BottomBar";
+import bottomPaddingValue from "~/data/bottomPaddingValue";
 
-const bottomHeight = 35;
+const bottomHeight = bottomPaddingValue;
 
 interface Props {
   children?: ReactNode;

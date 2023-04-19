@@ -5,19 +5,19 @@ import TextBody from "./Text/TextBody";
 
 import shut from "../../assets/desktop-icons/shut.png";
 
-const ReturnToDesktopButton = () => {
+const ReturnToMainButton = () => {
   const router = useRouter();
   return (
     <div
       className="flex w-fit cursor-pointer flex-row items-center gap-[5px] rounded-[4px] p-[5px] hover:bg-[#175db9]"
       onClick={() => {
-        void router.push("/desktop");
+        void router.push("/");
       }}
     >
       <Image src={shut} alt="shut down icon" className="h-[26px] w-[26px]" />
-      <TextBody styled="text-[#fff]" text="Back to desktop" />
+      <TextBody styled="text-[#fff]" text="Back to auth page" />
     </div>
   );
 };
 
-export default ReturnToDesktopButton;
+export default ReturnToMainButton;
