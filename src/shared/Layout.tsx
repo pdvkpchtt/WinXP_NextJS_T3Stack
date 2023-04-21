@@ -5,8 +5,6 @@ import { useMediaQuery } from "react-responsive";
 import BottomBar from "./ui/BottomBar";
 import bottomPaddingValue from "~/data/bottomPaddingValue";
 
-const bottomHeight = bottomPaddingValue;
-
 interface Props {
   children?: ReactNode;
   title?: string;
@@ -30,13 +28,13 @@ const Layout = ({ title = "undefined", children }: Props) => {
         "
         style={
           !isMobile
-            ? { paddingBottom: bottomHeight + 16 }
-            : { paddingBottom: bottomHeight + 8 }
+            ? { paddingBottom: bottomPaddingValue + 16 }
+            : { paddingBottom: bottomPaddingValue + 8 }
         }
       >
         {children}
       </main>
-      <BottomBar bottomHeight={bottomHeight} />
+      <BottomBar bottomHeight={bottomPaddingValue} />
     </>
   );
 };

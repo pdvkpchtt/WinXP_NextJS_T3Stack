@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useWindowSize } from "@react-hook/window-size";
 import { useRouter } from "next/router";
 
+import "xp.css/dist/XP.css";
+
 interface Props {
   title?: string;
   styled?: string;

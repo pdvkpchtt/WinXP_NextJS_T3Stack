@@ -1,6 +1,8 @@
 import Layout from "~/shared/Layout";
 import Window from "~/shared/ui/Window";
 
+import "xp.css/dist/XP.css";
+
 const Explorer = () => {
   return (
     <Layout title="Explorer">

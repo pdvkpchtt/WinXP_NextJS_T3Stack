@@ -40,7 +40,7 @@ const BottomBar = ({ bottomHeight = 0 }) => {
   return (
     <>
       <div
-        className="status-bar-task absolute bottom-0 left-0 z-20 w-full"
+        className="status-bar-task fixed bottom-0 left-0 z-20 w-full"
         style={{ height: bottomHeight }}
       >
         {/* start button */}
