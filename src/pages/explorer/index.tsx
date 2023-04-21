@@ -8,8 +8,8 @@ const Explorer = () => {
         styled="w-full h-full"
         title="Explorer"
         closeButton
-        bodyStyled="border-[1px] border-[#86847b] h-full bg-white overflow-y-scroll"
-        fullPage
+        bodyStyled="border-[1px] border-[#86847b] h-full bg-white overflow-y-auto"
+        fullScreen
       >
         <p>s</p>
         <p>s</p>

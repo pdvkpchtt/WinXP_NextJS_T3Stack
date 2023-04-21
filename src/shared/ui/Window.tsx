@@ -3,15 +3,13 @@ import { motion } from "framer-motion";
 import { useWindowSize } from "@react-hook/window-size";
 import { useRouter } from "next/router";
 
-import bottomPaddingValue from "~/data/bottomPaddingValue";
-
 interface Props {
   title?: string;
   styled?: string;
   bodyStyled?: string;
   dragable?: boolean;
   closeButton?: boolean;
-  fullPage?: boolean;
+  fullScreen?: boolean;
   children?: ReactNode;
   // ref?: React.Ref<HTMLInputElement>;
 }
@@ -22,7 +20,7 @@ const Window = ({
   bodyStyled = "",
   dragable = false,
   closeButton = false,
-  fullPage = false,
+  fullScreen = false,
   children,
 }: Props) => {
   const router = useRouter();
@@ -63,7 +61,7 @@ const Window = ({
       dragMomentum={false}
       dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
       id="drag-controll"
-      style={{ paddingBottom: fullPage ? 40 : 0 }}
+      style={{ paddingBottom: fullScreen ? 40 : 0 }}
     >
       <div className="title-bar">
         <div className="title-bar-text select-none">{title}</div>
