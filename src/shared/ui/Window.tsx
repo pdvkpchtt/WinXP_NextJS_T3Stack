@@ -61,7 +61,7 @@ const Window = ({
       dragMomentum={false}
       dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
       id="drag-controll"
-      style={{ paddingBottom: fullScreen ? 40 : 0 }}
+      style={fullScreen ? { paddingBottom: 40 } : { paddingBottom: 0 }}
     >
       <div className="title-bar">
         <div className="title-bar-text select-none">{title}</div>
